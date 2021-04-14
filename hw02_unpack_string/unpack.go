@@ -61,12 +61,5 @@ func Unpack(str string) (string, error) {
 			bSp.WriteRune(rStr[i])
 		}
 	}
-
-	/*
-		var result string
-		for _, v := range bOut.String() {
-			result = string(v) + result
-		}
-	*/
 	return bOut.String(), nil
 }
