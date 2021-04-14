@@ -31,7 +31,7 @@ func Unpack(str string) (string, error) {
 	var slash bool
 	// a5bc\4\5x abc\45x abc\\\5\x `abc\n4`
 	for i := range rStr {
-		var iRepNum int
+		var iNum int
 		if string(rStr[i]) == `\` && !slash {
 			bOut.WriteString(strings.Repeat(bSp.String(), 1))
 			bSp.Reset()
@@ -52,8 +52,8 @@ func Unpack(str string) (string, error) {
 			if bSp.Cap() == 0 {
 				return "-3", ErrInvalidString
 			}
-			iRepNum, _ = strconv.Atoi(string(rStr[i])) // считаем
-			bOut.WriteString(strings.Repeat(bSp.String(), iRepNum))
+			iNum, _ = strconv.Atoi(string(rStr[i])) // считаем
+			bOut.WriteString(strings.Repeat(bSp.String(), iNum))
 			bSp.Reset()
 		} else {
 			bOut.WriteString(strings.Repeat(bSp.String(), 1))
