@@ -43,6 +43,10 @@ var text = `Как видите, он  спускается  по  лестни�
 	посидеть у огня и послушать какую-нибудь интересную сказку.
 		В этот вечер...`
 
+var textnospace = `Этоттекст.\спе2циальноYнаписанбезпробеловикр555иво..`
+var justspace = "   		\n"
+var alphabel = "й ц у к е н г ш щ з х ъ ф ы в а п р о л д ж э я ч с м и т ь б ю а"
+
 func TestTop10(t *testing.T) {
 	t.Run("no words in empty string", func(t *testing.T) {
 		require.Len(t, Top10(""), 0)
@@ -56,5 +60,19 @@ func TestTop10(t *testing.T) {
 			expected := []string{"он", "и", "а", "что", "ты", "не", "если", "-", "то", "Кристофер"}
 			require.ElementsMatch(t, expected, Top10(text))
 		}
+	})
+
+	t.Run("no spaces test", func(t *testing.T) {
+		expected := []string{`Этоттекст.\спе2циальноYнаписанбезпробеловикр555иво..`}
+		require.ElementsMatch(t, expected, Top10(textnospace))
+	})
+
+	t.Run("just spaces", func(t *testing.T) {
+		require.Len(t, Top10(""), 0)
+	})
+
+	t.Run("alphabel", func(t *testing.T) {
+		expected := []string{"а", "б", "в", "г", "д", "е", "ж", "з", "и", "й"}
+		require.Subset(t, expected, Top10(alphabel))
 	})
 }
