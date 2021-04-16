@@ -44,8 +44,8 @@ func Top10(str string) []string {
 			sort.Strings(slKey[beg:end])
 			beg = i
 		}
-		if Cnt == mStr[slKey[0]] && i == len(slKey)-1 {
-			sort.Strings(slKey)
+		if i == len(slKey)-1 {
+			sort.Strings(slKey[beg:])
 		}
 	}
 
