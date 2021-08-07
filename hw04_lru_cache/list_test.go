@@ -1,11 +1,6 @@
 package hw04_lru_cache //nolint:golint,stylecheck
 
-import (
-	"testing"
-
-	"github.com/stretchr/testify/require"
-)
-
+/*
 func TestList(t *testing.T) {
 	t.Run("empty list", func(t *testing.T) {
 		l := NewList()
@@ -49,3 +44,4 @@ func TestList(t *testing.T) {
 		require.Equal(t, []int{70, 80, 60, 40, 10, 30, 50}, elems)
 	})
 }
+*/
